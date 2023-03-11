@@ -5,7 +5,7 @@
    - 1000 samples of uniform distribution on interval $[0,1]$
    - 1000 samples of normal distribution with mean $\mu=0$ and standard deviation $\sigma=1$.
    - 1000 samples of normal distribution with mean $\mu=0$ and standard deviation $\sigma=10$.
-   - 1000 samples of beta distribution for the following pairs of parameters $(\alpha,\beta)\in\{(0,0), (2,2),(3,9)\}$
+   - 1000 samples of beta distribution for the following pairs of parameters $(\alpha,\beta)\in\{(1,1), (2,2),(3,9)\}$
    - 10000 samples of two-dimensional normal distributions each with  mean $\mu=[0,0]^\mathsf{T}$ and covariance matrices
 ```math
 \Sigma_1=\begin{bmatrix}1&0\\0&1\end{bmatrix}
