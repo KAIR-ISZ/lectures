@@ -3,9 +3,6 @@
 ## Lectures
 ## Laboratories 
 
-
-
-## Docker instruction
 # Installation and configuration instructions for Docker
 1.	Brief introduction to Docker: https://www.youtube.com/watch?v=Gjnup-PuquQ 
 2.	Download and install Docker Desktop software for the appropriate operating system from https://www.docker.com 
