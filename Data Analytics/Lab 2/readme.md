@@ -1,49 +1,91 @@
-# Installation and configuration instructions for Docker
-1.	Brief introduction to Docker: https://www.youtube.com/watch?v=Gjnup-PuquQ 
-2.	Download and install Docker Desktop software for the appropriate operating system from https://www.docker.com 
+# Lab 2 -  Intro to stan
+F - number of letters in first name
+L - number of letters in last name
 
-    Depending on the user's computer configuration, it may be necessary to install additional software during the installation process. Follow the manufacturer's documentation:
 
-    Mac: https://docs.docker.com/desktop/install/mac-install/ 
+## Excercise 1 - generated quantities
+```code_1.stan```
 
-    Windows: https://docs.docker.com/desktop/install/windows-install/ 
+![alt text](img/code_1.png)
 
-    Linux: https://docs.docker.com/desktop/install/linux-install/ 
-    
-    After a successful installation, run the application.
+1. Compile code_1.stan and sample from it using M=F
+2. Create a pandas dataframe from resulting draws.
+3. Plot a histogram for each of y_sim and lambda
 
-3.	All data, scripts, etc. will be stored inside the container by default. As a result, they will be lost after the container is removed. To avoid such problems, create a volume. Open any command interpreter (PowerShell, cmd, etc.), preferably with administrator privileges. Then execute the command:
-    ```
-    docker volume create --driver local -o o=bind -o type=none -o device="path_to_localization" name_of_volume
-    ```
-    This will create a volume in the folder specified in path_to_localization.
-Created volumes can be viewed in Docker Desktop in the Volumes tab:
+## Excercise 2 - constraints on the data
+```code_2.stan```
 
-    ![Select server](./img/Obraz1.png)
+![alt text](img/code_2.png)
 
-4.	In the next step, you need to run a container based on an image. Docker allows you to upload and download different images on dockerhub. For the purpose of this subject, you need to download the prepared image:
-    ```
-    docker pull iszagh/cmdstan_python:1
-    ```
-5.	And run the container with the command:
-    ```
-    docker run -ti -d --name name_of_container -v name_of_volume:/home iszagh/cmdstan_python:1
-    ```
-    /home points to the folder inside the container connected to the volume.
+```code_3.stan```
 
-    The container can be stopped and resumed at any time without losing data, but permanent deletion will result in the loss of all data that is not in the attached volume.
+![alt text](img/code_3.png)
 
-6.	To be able to write code in the running container, you need to attach a code editor. For this instruction, Visual Studio Code is used. You need to download the Dev Containers extension. 
+1. Observe how constraints on data behave for code_2 and code_3
 
-    ![Select server](./img/Obraz2.png)
+### Excercise 3 - constraints on the parameters
+```code_4.stan```
 
-    In the search field, type: 
-    ```
-    >DevContainers:
-    ```
-    And select the option “Attach to Running Container…”
+![alt text](img/code_4.png)
 
-    ![Select server](./img/Obraz3.png)
+```code_5.stan```
 
-    Then select the previously launched container from the list.
-For convenient work with the code, it is worth downloading extensions appropriate for the language.
+![alt text](img/code_5.png)
+
+1. Constraints in parameters behave more subtely. We are infering theta without data from its prior.
+2. Please see diagnostic messages from code_4 and how samples from it compare to the probability distribution.
+3. Verify what changes if constraints are added as in code_5
+
+### Excercise 4 - functions and different functionalities of stan
+
+```code_6.stan```
+
+![alt text](img/code_6.png)
+
+1. Stan outside of sampling allows for certain computational tools. In particular equation solving.
+2. Using code_6 find the standard deviation of half_normal distribution, such that with 99% probability samples from it will be less than (F+L)/2.
+
+### Excercise 5 - different methods of defining models
+
+Stan models can be defined using sampling statements
+
+```code_7.stan```
+
+![alt text](img/code_7.png)
+
+However, what we really happens is that we are defining logarithm of the joint probability distribution, i.e.:
+
+$$
+\log p(\mu,\theta)=\log p(\mu|\theta)+\log p(\theta)
+$$
+
+Such declaration is done in the following way 
+
+
+```code_8.stan```
+
+![alt text](img/code_8.png)
+
+But specification can be even more detailed, and model can affect even individual coeeficients of vector parameters
+
+```code_9.stan```
+
+![alt text](img/code_9.png)
+
+1. Implement all the examples
+2. Use them to generate distributuion for N=F.
+
+
+### Excercise 6 - generated quantities post sampling
+
+Sometimes more than in parameters we are interested in their functions. 
+
+
+```code_10.stan```
+
+![alt text](img/code_10.png)
+
+Unfortunately, such interest can happen after we complete sampling which can be often time consuming. We can do such analysis in python or directly on samples, but cmdstan allows us to solve it in a different way. 
+
+1. Implement ```code_10.stan```
+2. Using generate_quantities() method use samples from previous excercises and and analyze mean of $y$.
