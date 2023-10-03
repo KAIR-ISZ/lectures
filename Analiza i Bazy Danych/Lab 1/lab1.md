@@ -248,7 +248,6 @@ ramka_danych <- read.csv("nazwa_pliku.csv")
 
 Ramki danych są często używane w analizie danych, ponieważ pozwalają na łatwą manipulację, filtrowanie, agregację i wizualizację danych w formie tabelarycznej. Dzięki nim możliwe jest przetwarzanie i badanie różnych aspektów danych w R.
 
-9. **Introduction to Data Frames (10 minutes):** Explain what data frames are and why they are essential in R for working with tabular data.
 
 **Ćwiczenie 3: Tworzenie i manipulacja data frameami**
 
