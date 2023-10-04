@@ -118,7 +118,7 @@ Wektory są kluczowymi elementami w analizie danych w R, a znajomość sposobów
 
 
 
-**Ćwiczenie 1: Tworzenie wektorów (10 minut):**
+**Ćwiczenie 1: Tworzenie wektorów:**
 
 Utwórz wektor następujących wartości: `5, 10, 15, 20, 25`
 
@@ -208,26 +208,24 @@ Masz listę wyników egzaminów. Napisz kod R, aby sprawdzić, czy każdy wynik 
 wyniki <- c(75, 48, 90, 60, 30)
 ```
 
-Provide a problem where students need to use if-else statements to check conditions and perform different actions based on the condition.
+## Data Frame
 
-## Data Frame (ramki danych) 
+DataFrame to podstawowa struktura danych w języku R, służąca do przechowywania i zarządzania danymi w formie tabelarycznej, gdzie dane są zorganizowane w kolumny i wiersze. Każda kolumna może zawierać różne typy danych (liczby, tekst, itp.), ale wszystkie kolumny w ramce danych muszą mieć taką samą liczbę wierszy.
 
-DataFrame (ramka danych) to podstawowa struktura danych w języku R, służąca do przechowywania i zarządzania danymi w formie tabelarycznej, gdzie dane są zorganizowane w kolumny i wiersze. Każda kolumna może zawierać różne typy danych (liczby, tekst, itp.), ale wszystkie kolumny w ramce danych muszą mieć taką samą liczbę wierszy.
-
-Tworzenie ramki danych w R można zrobić na kilka sposobów:
+Tworzenie data frame w R można zrobić na kilka sposobów:
 
 1. **Funkcja `data.frame()`:** Najczęściej używana metoda. Przykład:
 
 ```R
-# Tworzenie ramki danych z trzema kolumnami
-ramka_danych <- data.frame(
+# Tworzenie data frame z trzema kolumnami
+df <- data.frame(
   Imię = c("Anna", "Jan", "Karolina"),
   Wiek = c(25, 30, 28),
   Płeć = c("Kobieta", "Mężczyzna", "Kobieta")
 )
 ```
 
-2. **Konwersja innych struktur danych:** Istnieją inne struktury danych w R, takie jak wektory, które można przekształcić w ramkę danych. Przykład:
+2. **Konwersja innych struktur danych:** Istnieją inne struktury danych w R, takie jak wektory, które można przekształcić w data frame. Przykład:
 
 ```R
 # Tworzenie wektorów
@@ -235,18 +233,18 @@ imiona <- c("Anna", "Jan", "Karolina")
 wiek <- c(25, 30, 28)
 plec <- c("Kobieta", "Mężczyzna", "Kobieta")
 
-# Konwersja na ramkę danych
-ramka_danych <- data.frame(Imię = imiona, Wiek = wiek, Płeć = plec)
+# Konwersja na data frame
+df <- data.frame(Imię = imiona, Wiek = wiek, Płeć = plec)
 ```
 
-3. **Importowanie danych z pliku:** Można wczytać dane z plików zewnętrznych, takich jak CSV lub Excel, tworząc ramkę danych. Na przykład:
+3. **Importowanie danych z pliku:** Można wczytać dane z plików zewnętrznych, takich jak CSV lub Excel, tworząc data frame. Na przykład:
 
 ```R
 # Importowanie danych z pliku CSV
-ramka_danych <- read.csv("nazwa_pliku.csv")
+df <- read.csv("nazwa_pliku.csv")
 ```
 
-Ramki danych są często używane w analizie danych, ponieważ pozwalają na łatwą manipulację, filtrowanie, agregację i wizualizację danych w formie tabelarycznej. Dzięki nim możliwe jest przetwarzanie i badanie różnych aspektów danych w R.
+Data frame'y są często używane w analizie danych, ponieważ pozwalają na łatwą manipulację, filtrowanie, agregację i wizualizację danych w formie tabelarycznej. Dzięki nim możliwe jest przetwarzanie i badanie różnych aspektów danych w R.
 
 
 **Ćwiczenie 3: Tworzenie i manipulacja data frameami**
@@ -367,11 +365,8 @@ Wykorzystując dane o średnim wyniku z zaliczenia:
 
 |       Przedmiot       | Średnia | Rocznik |
 | :-------------------: | :-----: | :-----: |
-| Analiza i Bazy Danych |   70    |  2021   |
 | Analiza i Bazy Danych |   71    |  2022   |
-|   Metody numeryczne   |   52    |  2021   |
 |   Metody numeryczne   |   67    |  2022   |
-|  Eksploracja danych   |   93    |  2021   |
 |  Eksploracja danych   |   89    |  2022   |
 
 Przygotuj wykres słupkowy dla rocznika 2022. Wykres ma mieć tytuł i odpowiednio opisane osie. 
