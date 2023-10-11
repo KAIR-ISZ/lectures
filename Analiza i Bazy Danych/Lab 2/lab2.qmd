@@ -1,0 +1,49 @@
+---
+title: "Ćwiczenie 2"
+author: "Jerzy Baranowski"
+format: html
+editor: visual
+---
+
+## Podstawy Quarto
+
+Celem ćwiczenia jest opanowanie jak działa Quarto. Quarto to wszechstronny format dokumentu, który umożliwia łączenie tekstu, kodu i wizualizacji w jednym dokumencie przy użyciu języka R (lub innych).
+
+Za jego pomocą można generować np. rysunki automatycznie z kodu i generować do nich odwołania takie jak to: @fig-airquality. 
+
+```{r}
+#| label: fig-airquality
+#| fig-cap: "Temperatura i poziom ozonu"
+#| warning: false
+
+library(ggplot2)
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "loess")
+```
+
+
+
+## Zadanie 1 - Zapoznanie się z samouczkami
+
+Pierwszym zadaniem jest zapoznanie się z dostępnymi samouczkami na stronie projektu:
+
+[Hello, Quarto](https://quarto.org/docs/get-started/hello/rstudio.html)
+[Obliczenia w Quarto](https://quarto.org/docs/get-started/computations/rstudio.html)
+[Tworzenie dokumentów w Quarto](https://quarto.org/docs/get-started/computations/rstudio.html)
+
+## Zadanie 2 - Wyświetlanie data frame
+
+Stworzyć nowy dokument, w którym utworzyć data frame jak na poprzednich zajęciach i wyświetlić go automatycznie w postaci tabeli markdowna. 
+[Opis jak to można zrobić](https://quarto.org/docs/computations/r.html)
+
+## Zadanie domowe
+
+Wygenerować za pomocą Quarto przykładowe:
+
+-  plik pdf zawierający wzór matematyczny na funkcję gęstości prawdopodobieństwa rozkładu Gaussa 
+-  prezentację powerpoint z jednym slajdem z tekstem i jednym obrazkiem z internetu
+
+Sprawozdanie ma zawierać plik zip z kodem w plikach qmd oraz wygenerowanymi plikami (stroną dla zad 1 i odpowiednimi dla zadania domowego).
+
+
