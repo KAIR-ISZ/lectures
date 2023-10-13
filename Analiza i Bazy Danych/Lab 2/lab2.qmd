@@ -30,7 +30,7 @@ Pierwszym zadaniem jest zapoznanie się z dostępnymi samouczkami na stronie pr
 
 [Hello, Quarto](https://quarto.org/docs/get-started/hello/rstudio.html)
 [Obliczenia w Quarto](https://quarto.org/docs/get-started/computations/rstudio.html)
-[Tworzenie dokumentów w Quarto](https://quarto.org/docs/get-started/computations/rstudio.html)
+[Tworzenie dokumentów w Quarto](https://quarto.org/docs/get-started/authoring/rstudio.html)
 
 ## Zadanie 2 - Wyświetlanie data frame
 
